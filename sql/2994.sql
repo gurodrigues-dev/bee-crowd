@@ -1,0 +1,1 @@
+SELECT d.name, SUM(ROUND((a.hours * 150) * (1 + w.bonus/100), 1)) AS salary FROM doctors d INNER JOIN attendances a ON d.id = a.id_doctor INNER JOIN work_shifts w ON a.id_work_shift = w.id GROUP BY d.name ORDER BY salary DESC;

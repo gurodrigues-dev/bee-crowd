@@ -1,0 +1,1 @@
+SELECT c.name FROM customers AS c INNER JOIN legal_person AS l ON c.id = l.id_customers;

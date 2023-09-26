@@ -1,0 +1,1 @@
+SELECT pd.name FROM products AS pd INNER JOIN providers AS pv ON pd.id_providers = pv.id WHERE pd.amount >= 10 AND pd.amount <= 20 AND starts_with(pv.name, 'P');

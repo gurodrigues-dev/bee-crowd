@@ -1,0 +1,1 @@
+SELECT pd.name, pv.name, pd.price FROM products AS pd INNER JOIN providers AS pv ON pd.id_providers = pv.id INNER JOIN categories AS c ON pd.id_categories = c.id WHERE pd.price > 1000 AND c.name = 'Super Luxury';

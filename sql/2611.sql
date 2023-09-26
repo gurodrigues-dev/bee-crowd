@@ -1,0 +1,1 @@
+SELECT m.id, m.name FROM movies AS m INNER JOIN genres AS g ON m.id_genres = g.id AND g.description = 'Action';

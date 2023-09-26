@@ -1,0 +1,1 @@
+SELECT l.name, TRUNC(l.omega * 1.618, 3) AS "Fator N" FROM life_registry AS l INNER JOIN dimensions AS d ON l.dimensions_id = d.id WHERE starts_with(l.name, 'Richard') AND d.name IN ('C875', 'C774') ORDER BY "Fator N" ASC;

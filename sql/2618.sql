@@ -1,0 +1,1 @@
+SELECT p.name, pr.name, c.name FROM products AS p INNER JOIN providers AS pr ON p.id_providers = pr.id AND pr.name = 'Sansul SA' INNER JOIN categories AS c ON p.id_categories = c.id AND c.name = 'Imported';

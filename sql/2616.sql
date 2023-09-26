@@ -1,0 +1,1 @@
+SELECT c.id, c.name FROM customers AS c LEFT JOIN locations AS l ON l.id_customers = c.id WHERE l.id IS NULL ORDER BY c.id;
