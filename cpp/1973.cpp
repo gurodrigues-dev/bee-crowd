@@ -1,47 +1,36 @@
-#include <iostream>
-using namespace std;
-int main()
-{
-    long long int n  , i;
-    cin >> n;
-    int star[n] , sheep[n] ;
-    long long int star_count = 0 , sheep_count = 0;
+#include <cstdio>
+#include <cstring>
+#define MAXN 1000009
 
-    for(i = 0 ; i > sheep[i];
-        star[i] = 0;
-    }
-    i = 0;
-    while(1){
-        if(i == 0 && sheep[i]%2 == 0){
-            star[i] = 1;
-            if(sheep[i] > 0)
-                sheep[i]--;
-            break;
-        }
-        else if(i == n-1 && sheep[i]%2 == 1){
-            star[i] = 1;
-            if(sheep[i] > 0)
-                sheep[i]--;
-            break;
-        }
-        if(sheep[i]%2 == 1){
-            star[i] = 1;
-            sheep[i]--;
-            i++;
-        }
-        if(sheep[i]%2 == 0){
-            star[i] = 1;
-            if(sheep[i] > 0)
-                sheep[i]--;
-            i--;
-        }
-    }
+typedef long long ll;
+ll ovelhas[MAXN];
+bool roubado[MAXN];
 
-    for(i = 0 ; i < n ; i++){
-        sheep_count += sheep[i];
-        star_count += star[i];
-    }
-    cout << star_count << " " << sheep_count << endl;
+int main(){
+	int N;
+	ll total=0;
+	memset(&roubado, false, sizeof roubado);
+	scanf("%d", &N);
+	for(int i=0; i<N; i++){
+		scanf("%lld", &ovelhas[i]);
+		total += ovelhas[i];
+	}
+	int pos = 0, proxpos, nroubado=0;
+	while(pos>=0 && pos<N){
+		if (!roubado[pos]){
+			nroubado++;
+			roubado[pos]=true;
+		}
 
-    return 0;
+		if(ovelhas[pos]%2==0) proxpos = pos-1;
+		else proxpos = pos+1;
+
+		if (ovelhas[pos]>0) {
+			total--; ovelhas[pos]--;
+		}
+		pos = proxpos;
+		
+	}
+	printf("%d %lld\n", nroubado, total);
+	return 0;
 }
